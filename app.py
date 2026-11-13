@@ -9,9 +9,11 @@ from pathlib import Path
 
 import streamlit as st
 
+# Make sure the app's own folders (marwick/, ui/) are importable wherever it is hosted.
 APP_DIR = Path(__file__).resolve().parent
 if str(APP_DIR) not in sys.path:
     sys.path.insert(0, str(APP_DIR))
+
 from ui.theme import LOGO_SYMBOL, enable_chart_theme, esc, footer, inject_css, logo_img
 
 st.set_page_config(page_title="Marwick", page_icon=str(LOGO_SYMBOL), layout="wide",
