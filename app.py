@@ -4,8 +4,14 @@ This file only routes between pages. All financial logic lives in the
 `marwick` package; all presentation lives in the `ui` package.
 Run with:  python -m streamlit run app.py
 """
+import sys
+from pathlib import Path
+
 import streamlit as st
 
+APP_DIR = Path(__file__).resolve().parent
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
 from ui.theme import LOGO_SYMBOL, enable_chart_theme, esc, footer, inject_css, logo_img
 
 st.set_page_config(page_title="Marwick", page_icon=str(LOGO_SYMBOL), layout="wide",
